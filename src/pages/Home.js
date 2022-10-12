@@ -6,6 +6,7 @@ import Common from '../services/CommonService/CommonService';
 
 import { connect } from 'react-redux';
 import { setUserData } from '../services/reducer/actions/Actions';
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -45,7 +46,6 @@ function Home() {
                                     <div className="icon"><img src="https://emiratesnbdbenefits.thriwe.com/public/web/img/services/transfer.png" className="img-fluid" width="80px" /></div>
                                     <h4>Airport <br /> Transfer</h4>
                                 </span>
-
                             </li>
                             <li onClick={() => { setBenefitAndCardModel(true); setbenefitType(3); }}>
                                 <span className="animate__animated animate__bounceIn delay3 enabled">
@@ -54,6 +54,7 @@ function Home() {
                                 </span>
 
                             </li>
+
                             <li onClick={() => { setBenefitAndCardModel(true); setbenefitType(4); }}>
                                 <span className="animate__animated animate__bounceIn delay4 enabled">
                                     <div className="icon"><img src="https://emiratesnbdbenefits.thriwe.com/public/web/img/services/car-service.png" /></div>
@@ -61,6 +62,9 @@ function Home() {
                                 </span>
 
                             </li>
+                            
+
+                          
                             <li onClick={() => { setBenefitAndCardModel(true); setbenefitType(5); }}>
                                 <span className="animate__animated animate__bounceIn delay5 enabled">
                                     <div className="icon"><img src="https://emiratesnbdbenefits.thriwe.com/public/web/img/services/car-registration.png" /></div>
@@ -73,40 +77,60 @@ function Home() {
                 </div>
             </section>
 
-
             <section className="light-blue section-space pt-0">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-11 col-xl-7 col-lg-8 m-auto text-center">
-                            <h4>Don't Miss Out, You can save on each Booking !!</h4>
-                            <p className="mt-2">EmiratesNBD Benefit program curated specially for its cardholders<br /> assures exclusive savings on every booking. Save big with each <br />booking you place through our platform.</p>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-12 text-center" />
-                        <div className="col-md-12 col-lg-4 text-center">
-                            <div className="chart easyPieChart" data-percent={100} style={{ width: '250px', height: '250px', lineHeight: '250px' }}>
-                                <span className="textspan"><small>You Saved</small> <br />
-                                    <span className="text-success">AED 0 </span> <br />
-                                    <small>in 2022</small>
-                                </span>
-                                <canvas width={250} height={250} />
-                            </div>
-                        </div>
-                        <div className="col-md-12 col-lg-8  mt-3  mb-5">
-                            <div className="row">
-                                <div className="col-md-12  profile-index">
-                                    <div className="profile-list">
-                                        <p className="light-gray">
-                                            <i><small> Once you start Booking - your savings logs will show here.</small></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+  <div className="container">
+    <div className="row">
+      <div className="col-md-11 col-xl-7 col-lg-8 m-auto text-center">
+        <h4>Don't Miss Out, You can save on each Booking !!</h4>
+        <p className="mt-2">
+          EmiratesNBD Benefit program curated specially for its cardholders
+          <br /> assures exclusive savings on every booking. Save big with each{" "}
+          <br />
+          booking you place through our platform.
+        </p>
+      </div>
+    </div>
+    <div className="row">
+      <div className="col-md-12 text-center" />
+      <div className="col-md-12 col-lg-4 text-center">
+        <div
+          className="chart easyPieChart"
+          data-percent={100}
+          style={{ width: 250, height: 250, lineHeight: 250 }}
+        >
+          <span className="textspan">
+            <small>You Saved</small> <br />
+            <span className="text-success">AED 0 </span> <br />
+            <small>in 2022</small>
+          </span>
+          <canvas width={250} height={250} />
+          <canvas
+            width={375}
+            height={375}
+            style={{ width: 250, height: 250 }}
+          />
+        </div>
+      </div>
+      <div className="col-md-12 col-lg-8  mt-3  mb-5">
+        <div className="row">
+          <div className="col-md-12  profile-index">
+            <div className="profile-list">
+              <p className="light-gray">
+                <i>
+                  <small>
+                    {" "}
+                    Once you start Booking - your savings logs will show here.
+                  </small>
+                </i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
             <BenefitAndCardModal show={benefitAndCardModel} benefitType={benefitType} onClose={() => setBenefitAndCardModel(false)} />
         </>

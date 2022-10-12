@@ -1,38 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import { Modal, Button } from "react-bootstrap";
-
-import {BrowserRouter as Route, Link } from 'react-router-dom';
-
-import Config from "../../services/Configs";
-import GolfBookingModalContent from "./GolfBookingModalContent";
-import AirportBookingModalContent from "./AirportBookingModalContent";
-import CarRegistrationModalContent from "./CarRegistrationModalContent";
-import CarServicingModalContent from "./CarServicingModalContent";
-import LocalCourierModalContent from "./LocalCourierModalContent";
-
-const BenefitAndCardModal = pros => {
-    useEffect(() => {
-        console.log('sddssdds');
-    }, []);
-
-    var url = '';
-    if(pros.benefitType == 1){
-        url = '/booking/golf-booking';
-    }else if(pros.benefitType == 2){
-        url = '/booking/airport-transfer';
-    }
-
+const GolfBookingModalContent = () => {
     return (
-
-        <Modal scrollable={true} size="xl" show={pros.show} onHide={pros.onClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>
-                    <h3 className="text-purple">Benefits and Card Details ({pros.benefitType}) </h3>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                {/* <div className="row">
+         <div className="row">
                     <div className="col-md-12">
                         <h5 className="modal-title" id="benefit_heading_name">
                             Golf Booking
@@ -186,43 +156,8 @@ const BenefitAndCardModal = pros => {
                             className="img-fluid border-round"
                         />
                     </div>
-                </div> */}
-
-                    {
-                        pros.benefitType == 1 &&
-                        <GolfBookingModalContent />
-                    }
-
-
-                    {
-                        pros.benefitType == 2 &&
-                        <AirportBookingModalContent />
-                    }
-
-
-                    {
-                        pros.benefitType == 3 &&
-                        <LocalCourierModalContent/>
-                    }
-
-
-                    {
-                        pros.benefitType == 4 &&
-                        <CarServicingModalContent/>
-                    }
-                    
-                    
-                    {
-                        pros.benefitType == 5 &&
-                        <CarRegistrationModalContent/>
-                    }
-
-            </Modal.Body>
-            <Modal.Footer className="text-right">
-                <Link to={url} className="custom-btn theme-2 mb-sm-0 order-0 order-sm-1">Book Now</Link>
-            </Modal.Footer>
-        </Modal>
+                </div> 
     )
-};
+}
 
-export default BenefitAndCardModal;
+export default GolfBookingModalContent;

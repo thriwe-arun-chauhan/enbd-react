@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Route, Link, useHistory } from 'react-router-dom';
+
 import LogoComponent from '../../components/LogoComponent';
 function InnerHeader() {
     return (
@@ -18,18 +20,18 @@ function InnerHeader() {
                                                         <div className="nav-inner">
                                                             <div className="menu-home-menu-container">
                                                                 <ul id="nav" className="nav main-menu menu navbar-nav">
-                                                                    <li><a className="leave_site" 
+                                                                    <li><Link className="leave_site" 
                                                                     // href="javascript:void(0);" 
-                                                                    link="https://emiratesnbdbenefits.thriwe.com/booking-history">Booking history</a></li>
-                                                                    <li><a className="leave_site" 
+                                                                    to="/booking-history">Booking history</Link></li>
+                                                                    <li><Link className="leave_site" 
                                                                     // href="javascript:void(0);" 
-                                                                    link="https://emiratesnbdbenefits.thriwe.com/terms-and-conditions">T&amp;C</a></li>
-                                                                    <li><a className="leave_site" 
+                                                                    to="/tems-and-conditions">T&amp;C</Link></li>
+                                                                    <li><Link className="leave_site" 
                                                                     // href="javascript:void(0);" 
-                                                                    link="https://emiratesnbdbenefits.thriwe.com/faqs">FAQs</a></li>
-                                                                    <li><a className="leave_site" 
+                                                                    to="/faqs">FAQs</Link></li>
+                                                                    <li><Link className="leave_site" 
                                                                     // href="javascript:void(0);" 
-                                                                    link="https://emiratesnbdbenefits.thriwe.com/contact">Contact Us</a></li>
+                                                                    to="/contact">Contact Us</Link></li>
                                                                     <li><a 
                                                                     // href="#!" 
                                                                     className="option"><i className="fa fa-headset text-white" /></a></li>
@@ -37,12 +39,12 @@ function InnerHeader() {
                                                                     // href="#"
                                                                     >Hi, Manish Sharma</a>
                                                                         <ul className="sub-menu">
-                                                                            <li><a className="leave_site" 
+                                                                            <li><Link className="leave_site" 
                                                                             // href="javascript:void(0);" 
-                                                                            link="https://emiratesnbdbenefits.thriwe.com/profile">Manage Profile</a></li>
-                                                                            <li><a className="leave_site" 
+                                                                            to="/manage-profile">Manage Profile</Link></li>
+                                                                          <li><a className="leave_site" 
                                                                             // href="javascript:void(0);" 
-                                                                            link="https://emiratesnbdbenefits.thriwe.com/logout">Logout</a></li>
+                                                                            link="https://emiratesnbdbenefits.thriwe.com/logout">Logout</a></li> 
                                                                         </ul>
                                                                     </li>
                                                                 </ul>

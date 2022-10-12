@@ -31,9 +31,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route {...rest} render={props => IsLoggedIn
       ? (
         <>
-          <SweetAlert success title="Good job!" onConfirm={onConfirm} onCancel={onCancel}>
+          {/* <SweetAlert success title="Good job!" onConfirm={onConfirm} onCancel={onCancel}>
             You clicked the button!
-          </SweetAlert>
+          </SweetAlert> */}
           
           <WidgetList />
           <div id="page" className="site">

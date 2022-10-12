@@ -5,7 +5,7 @@ import { setUserData } from '../../services/reducer/actions/Actions';
 
 import { AlertPopup } from '../../services/Shared';
 
-function Booking() {
+function AirBooking() {
     useEffect(() => {
         AlertPopup({ text: 'Arun' });
     }, []);
@@ -3970,4 +3970,4 @@ const mapStateToProps = state => ({
 const mapDistchToProps = dispatch => ({
     setConfigHandler: data => dispatch(setUserData(data))
 });
-export default connect(mapStateToProps, mapDistchToProps)(Booking);
+export default connect(mapStateToProps, mapDistchToProps)(AirBooking);
