@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Modal, Button } from "react-bootstrap";
 
-import {BrowserRouter as Route, Link } from 'react-router-dom';
+import { BrowserRouter as Route, Link } from "react-router-dom";
 
 import Config from "../../services/Configs";
 import GolfBookingModalContent from "./GolfBookingModalContent";
@@ -11,28 +11,39 @@ import CarRegistrationModalContent from "./CarRegistrationModalContent";
 import CarServicingModalContent from "./CarServicingModalContent";
 import LocalCourierModalContent from "./LocalCourierModalContent";
 
-const BenefitAndCardModal = pros => {
-    useEffect(() => {
-        console.log('sddssdds');
-    }, []);
+const BenefitAndCardModal = (pros) => {
+  useEffect(() => {
+    console.log("sddssdds");
+  }, []);
 
-    var url = '';
-    if(pros.benefitType == 1){
-        url = '/booking/golf-booking';
-    }else if(pros.benefitType == 2){
-        url = '/booking/airport-transfer';
+  function _getUrl(benefitType) {
+    var url = "";
+    if (benefitType == 1) {
+      url = "/booking/golf-booking";
+    } else if (benefitType == 2) {
+      url = "/booking/airport-transfer";
+    } else if (benefitType == 3) {
+      url = "/booking/local-courier";
+    } else if (benefitType == 4) {
+      url = "/booking/car-servicing";
+    } else if (benefitType == 5) {
+      url = "/booking/car-registration";
     }
 
-    return (
+    return url;
+  }
 
-        <Modal scrollable={true} size="xl" show={pros.show} onHide={pros.onClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>
-                    <h3 className="text-purple">Benefits and Card Details ({pros.benefitType}) </h3>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                {/* <div className="row">
+  return (
+    <Modal scrollable={true} size="xl" show={pros.show} onHide={pros.onClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>
+          <h3 className="text-purple">
+            Benefits and Card Details ({pros.benefitType}){" "}
+          </h3>
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {/* <div className="row">
                     <div className="col-md-12">
                         <h5 className="modal-title" id="benefit_heading_name">
                             Golf Booking
@@ -188,41 +199,26 @@ const BenefitAndCardModal = pros => {
                     </div>
                 </div> */}
 
-                    {
-                        pros.benefitType == 1 &&
-                        <GolfBookingModalContent />
-                    }
+        {pros.benefitType == 1 && <GolfBookingModalContent />}
 
+        {pros.benefitType == 2 && <AirportBookingModalContent />}
 
-                    {
-                        pros.benefitType == 2 &&
-                        <AirportBookingModalContent />
-                    }
+        {pros.benefitType == 3 && <LocalCourierModalContent />}
 
+        {pros.benefitType == 4 && <CarServicingModalContent />}
 
-                    {
-                        pros.benefitType == 3 &&
-                        <LocalCourierModalContent/>
-                    }
-
-
-                    {
-                        pros.benefitType == 4 &&
-                        <CarServicingModalContent/>
-                    }
-                    
-                    
-                    {
-                        pros.benefitType == 5 &&
-                        <CarRegistrationModalContent/>
-                    }
-
-            </Modal.Body>
-            <Modal.Footer className="text-right">
-                <Link to={url} className="custom-btn theme-2 mb-sm-0 order-0 order-sm-1">Book Now</Link>
-            </Modal.Footer>
-        </Modal>
-    )
+        {pros.benefitType == 5 && <CarRegistrationModalContent />}
+      </Modal.Body>
+      <Modal.Footer className="text-right">
+        <Link
+          to={_getUrl(pros.benefitType)}
+          className="custom-btn theme-2 mb-sm-0 order-0 order-sm-1"
+        >
+          Book Now
+        </Link>
+      </Modal.Footer>
+    </Modal>
+  );
 };
 
 export default BenefitAndCardModal;
